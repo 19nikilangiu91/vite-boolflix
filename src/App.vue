@@ -1,16 +1,33 @@
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import AppHeader from './components/AppHeader.vue'
+import CharactersList from './components/CharactersList.vue'
+import SingleCharacter from './components/SingleCharacter.vue'
+
+
+
+// Importo il file "store.js"
+import { store } from './store.js';
 
 export default {
   name: "App",
+  data() {
+    return {
+      store,
+    }
+  },
   components: {
-    HelloWorld
+    AppHeader,
+    CharactersList,
+    SingleCharacter
   }
 }
 </script>
 
 <template>
-  <HelloWorld />
+  <AppHeader />
+  <CharactersList />
+  <SingleCharacter />
 </template>
 
 <style lang="scss" >
