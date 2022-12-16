@@ -21,9 +21,20 @@ export default {
 
 <template>
     <!-- Qui vado a riportare il "Template Statico" che poi importerò in "SingleCharacter" -->
-    <h1>I'm CharactersList</h1>
+    <div>
+        <img src="https://image.tmdb.org/t/p/w342/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg" alt="">
+        <ul>
+            <li>Titolo</li>
+            <li>Titolo Originale</li>
+            <li>Lingua</li>
+            <li>Voto</li>
+        </ul>
+    </div>
 </template>
 
 <style lang="scss" scoped>
-
+img {
+    width: 100px;
+    height: 100px;
+}
 </style>
