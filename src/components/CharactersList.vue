@@ -6,7 +6,7 @@ import SingleCharacter from './SingleCharacter.vue'
 import { store } from '../store.js';
 
 export default {
-    name: "CharactersList",
+    name: "CharacterList",
     components: {
         SingleCharacter,
     },
@@ -21,20 +21,19 @@ export default {
 
 <template>
     <!-- Qui vado a riportare il "Template Statico" che poi importerò in "SingleCharacter" -->
-    <div>
-        <img src="https://image.tmdb.org/t/p/w342/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg" alt="">
-        <ul>
-            <li>Titolo</li>
-            <li>Titolo Originale</li>
-            <li>Lingua</li>
-            <li>Voto</li>
-        </ul>
+    <div class="container">
+        <div v-for="movie in store.characterList">
+            <SingleCharacter :movie="movie" />
+        </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-img {
-    width: 100px;
-    height: 100px;
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: white;
+    height: 100vh;
 }
 </style>
