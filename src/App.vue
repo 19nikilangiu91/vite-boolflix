@@ -26,10 +26,10 @@ export default {
   methods: {
     getCharacters() {
 
-      let myUrl = store.apiURL;
+      let myUrl = store.apiUrl;
 
       if (store.searchText !== "") {
-        myUrl += `${store.apiKEY}&query=${store.searchText}`
+        myUrl = `${store.apiSearch}&query=${store.searchText}`
       }
 
       axios
