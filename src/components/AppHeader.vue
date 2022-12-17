@@ -2,16 +2,13 @@
 
 export default {
     name: "AppHeader",
-    props: {
-
-    }
-
+    props: ["message"]
 }
 
 </script>
 
 <template>
-    <h1>I'm AppHeader</h1>
+    <h1>{{ message }}</h1>
 </template>
 
 <style lang="scss" scoped>
