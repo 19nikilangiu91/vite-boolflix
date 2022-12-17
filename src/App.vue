@@ -1,9 +1,11 @@
 <script>
+// Importo Axios
+import axios from 'axios';
 
+// Dichiaro i "components"
 import AppHeader from './components/AppHeader.vue'
 import CharactersList from './components/CharactersList.vue'
-import SingleCharacter from './components/SingleCharacter.vue'
-
+import AppSearch from './components/AppSearch.vue'
 
 
 // Importo il file "store.js"
@@ -11,23 +13,45 @@ import { store } from './store.js';
 
 export default {
   name: "App",
+  components: {
+    AppHeader,
+    CharactersList,
+    AppSearch
+  },
   data() {
     return {
       store,
     }
   },
-  components: {
-    AppHeader,
-    CharactersList,
-    SingleCharacter
+  methods: {
+    getCharacters() {
+
+      let myUrl = store.apiURL;
+
+      if (store.searchText !== "") {
+        myUrl += `${store.apiKEY}&query=${store.searchText}`
+      }
+
+      axios
+        .get(myUrl)
+        .then(res => {
+          store.characterList = res.data.results;
+        })
+        .catch(err => {
+          console.log("Errors", err);
+        });
+    }
+  },
+  mounted() {
+    this.getCharacters();
   }
 }
 </script>
 
 <template>
-  <AppHeader />
+  <AppHeader :message="store.title" />
+  <AppSearch @search="getCharacters()" />
   <CharactersList />
-  <SingleCharacter />
 </template>
 
 <style lang="scss" >
