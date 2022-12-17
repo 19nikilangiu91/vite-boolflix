@@ -4,8 +4,14 @@ import { reactive } from 'vue'
 export const store = reactive({
     // Dichiaro la "characterList" che riceverà le informazioni dall' "API".
     characterList: [],
-    // Dichiaro l'url dell' "API".
-    apiURL: "https://api.themoviedb.org/3/search/movie/?api_key=1c9ccf08e6418fe30c2b52b60d794a0e&query=Star Wars",
-    // Importerò il "title" ad "App" richimandolo tramite "props" da "AppHeader".
+    // Dichiaro l'url dell' "apiURL".
+    apiURL: "https://api.themoviedb.org/3/search/movie?api_key=",
+    // Dichiaro l'"apiKEY"
+    apiKEY: "1c9ccf08e6418fe30c2b52b60d794a0e",
+    // Dichiaro l' "urlImage"
+    urlImage: "https://image.tmdb.org/t/p/",
+
     title: "BoolFlix",
+    // Diachiaro il "searchText" che servirà per la ricerca.
+    searchText: "",
 });
