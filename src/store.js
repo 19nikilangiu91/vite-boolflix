@@ -7,7 +7,7 @@ export const store = reactive({
     // Dichiaro l'url dell' "apiUrl".
     apiUrl: "https://api.themoviedb.org/3/movie/popular/?api_key=1c9ccf08e6418fe30c2b52b60d794a0e",
     // Dichiaro l'url dell' "apiSearch".
-    apiSearch: "https://api.themoviedb.org/3/search/movie/?api_key=1c9ccf08e6418fe30c2b52b60d794a0e",
+    apiSearch: "https://api.themoviedb.org/3/search/multi/?api_key=1c9ccf08e6418fe30c2b52b60d794a0e",
 
     // Dichiaro l' "urlImage"
     urlImage: "https://image.tmdb.org/t/p/",
