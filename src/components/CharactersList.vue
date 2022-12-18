@@ -33,7 +33,5 @@ export default {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    background-color: white;
-    height: 100vh;
 }
 </style>
