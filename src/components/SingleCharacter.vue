@@ -39,6 +39,11 @@ export default {
         creaPathImg() {
             return this.store.urlImage + "w342" + this.movie.poster_path;
         },
+        // Milestone 3 - Creo un metodo per trasformare il voto da 1 a 10 decimale in un numero intero da 1 a 5.
+        starsVote(vote) {
+            let numberStars = Math.round(vote / 2);
+            return numberStars;
+        },
     },
     computed: {
         // Milestone 2
@@ -50,7 +55,7 @@ export default {
                 }
             }
             return this.flagsArray[this.flagsArray.length - 1].image;
-        }
+        },
     },
     mounted() {
         this.creaPathImg();
@@ -65,19 +70,22 @@ export default {
         <div>
             <img :src="creaPathImg()">
         </div>
-        <div v-if="movie.title !== '' && movie.original_title !== ''">
-            <div>{{ movie.title }}</div>
-            <div>{{ movie.original_title }}</div>
-        </div>
-        <div v-if="movie.name !== '' && movie.original_name !== ''">
-            <div>{{ movie.name }}</div>
-            <div>{{ movie.original_name }}</div>
+        <!-- Creo un v-if per i "Movie" e per le "Tv Series" -->
+        <div
+            v-if="movie.title !== '' && movie.original_title !== '' && movie.name !== '' && movie.original_name !== ''">
+            <div>Titolo:{{ movie.title }} {{ movie.name }}</div>
+            <div>Titolo Originale:{{ movie.original_title }} {{ movie.original_name }}</div>
         </div>
         <div>
+            <!-- Richiamo il metodo "getFlags" -->
             <img :src="getFlags" alt="" class="flag">
         </div>
-        <div>{{ movie.vote_language }}</div>
-        <div>{{ movie.vote_average }}</div>
+        <div>Voto:{{ movie.vote_language }}
+            <!-- Richiamo il metodo "starsVote" -->
+            <i v-for="star in starsVote(movie.vote_average)" :key="star">
+                <font-awesome-icon icon="fa-solid fa-star" />
+            </i>
+        </div>
     </div>
 </template>
 
