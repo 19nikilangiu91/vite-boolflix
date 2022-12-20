@@ -23,15 +23,16 @@ export default {
     <!-- Qui vado a riportare il "Template Statico" che poi importerò in "SingleCharacter" -->
     <div class="container">
         <div v-for="movie in store.characterList">
-            <SingleCharacter :movie="movie" />
+            <SingleCharacter :info="movie" />
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
+@use 'src/style/partials/variables' as*;
+
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
 }
 </style>
