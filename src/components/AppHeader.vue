@@ -12,5 +12,9 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use 'src/style/partials/variables' as*;
 
+h1 {
+    color: $secondary;
+}
 </style>
