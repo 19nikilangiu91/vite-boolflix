@@ -49,16 +49,20 @@ export default {
 </script>
 
 <template>
-  <AppHeader :message="store.title" />
-  <AppSearch @search="getCharacters()" />
-  <CharactersList />
+  <header>
+    <AppHeader :message="store.title" />
+    <AppSearch @search="getCharacters()" />
+  </header>
+  <main>
+    <CharactersList />
+  </main>
 </template>
 
 <style lang="scss" >
 @use './style/general.scss' as*;
 @use './style/partials/variables' as*;
 
-h1 {
+div {
   color: $primary;
 }
 </style>
